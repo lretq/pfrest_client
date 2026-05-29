@@ -1,0 +1,12 @@
+from enum import Enum
+
+
+class IPsecPhase1EncryptionPrfAlgorithm(str, Enum):
+    AESXCBC = "aesxcbc"
+    SHA1 = "sha1"
+    SHA256 = "sha256"
+    SHA384 = "sha384"
+    SHA512 = "sha512"
+
+    def __str__(self) -> str:
+        return str(self.value)

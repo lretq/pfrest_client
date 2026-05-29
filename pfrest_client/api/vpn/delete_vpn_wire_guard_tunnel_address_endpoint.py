@@ -1,0 +1,370 @@
+from http import HTTPStatus
+from typing import Any
+
+import httpx
+
+from ... import errors
+from ...client import AuthenticatedClient, Client
+from ...models.delete_vpn_wire_guard_tunnel_address_endpoint_response_400 import (
+    DeleteVPNWireGuardTunnelAddressEndpointResponse400,
+)
+from ...models.delete_vpn_wire_guard_tunnel_address_endpoint_response_401 import (
+    DeleteVPNWireGuardTunnelAddressEndpointResponse401,
+)
+from ...models.delete_vpn_wire_guard_tunnel_address_endpoint_response_403 import (
+    DeleteVPNWireGuardTunnelAddressEndpointResponse403,
+)
+from ...models.delete_vpn_wire_guard_tunnel_address_endpoint_response_404 import (
+    DeleteVPNWireGuardTunnelAddressEndpointResponse404,
+)
+from ...models.delete_vpn_wire_guard_tunnel_address_endpoint_response_405 import (
+    DeleteVPNWireGuardTunnelAddressEndpointResponse405,
+)
+from ...models.delete_vpn_wire_guard_tunnel_address_endpoint_response_406 import (
+    DeleteVPNWireGuardTunnelAddressEndpointResponse406,
+)
+from ...models.delete_vpn_wire_guard_tunnel_address_endpoint_response_409 import (
+    DeleteVPNWireGuardTunnelAddressEndpointResponse409,
+)
+from ...models.delete_vpn_wire_guard_tunnel_address_endpoint_response_415 import (
+    DeleteVPNWireGuardTunnelAddressEndpointResponse415,
+)
+from ...models.delete_vpn_wire_guard_tunnel_address_endpoint_response_422 import (
+    DeleteVPNWireGuardTunnelAddressEndpointResponse422,
+)
+from ...models.delete_vpn_wire_guard_tunnel_address_endpoint_response_424 import (
+    DeleteVPNWireGuardTunnelAddressEndpointResponse424,
+)
+from ...models.delete_vpn_wire_guard_tunnel_address_endpoint_response_500 import (
+    DeleteVPNWireGuardTunnelAddressEndpointResponse500,
+)
+from ...models.delete_vpn_wire_guard_tunnel_address_endpoint_response_503 import (
+    DeleteVPNWireGuardTunnelAddressEndpointResponse503,
+)
+from ...types import UNSET, Response
+
+
+def _get_kwargs(
+    *,
+    parent_id: int | str,
+    id: int | str,
+) -> dict[str, Any]:
+
+    params: dict[str, Any] = {}
+
+    json_parent_id: int | str
+    json_parent_id = parent_id
+    params["parent_id"] = json_parent_id
+
+    json_id: int | str
+    json_id = id
+    params["id"] = json_id
+
+    params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
+
+    _kwargs: dict[str, Any] = {
+        "method": "delete",
+        "url": "/api/v2/vpn/wireguard/tunnel/address",
+        "params": params,
+    }
+
+    return _kwargs
+
+
+def _parse_response(
+    *, client: AuthenticatedClient | Client, response: httpx.Response
+) -> (
+    DeleteVPNWireGuardTunnelAddressEndpointResponse400
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse401
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse403
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse404
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse405
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse406
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse409
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse415
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse422
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse424
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse500
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse503
+    | None
+):
+    if response.status_code == 400:
+        response_400 = DeleteVPNWireGuardTunnelAddressEndpointResponse400.from_dict(response.json())
+
+        return response_400
+
+    if response.status_code == 401:
+        response_401 = DeleteVPNWireGuardTunnelAddressEndpointResponse401.from_dict(response.json())
+
+        return response_401
+
+    if response.status_code == 403:
+        response_403 = DeleteVPNWireGuardTunnelAddressEndpointResponse403.from_dict(response.json())
+
+        return response_403
+
+    if response.status_code == 404:
+        response_404 = DeleteVPNWireGuardTunnelAddressEndpointResponse404.from_dict(response.json())
+
+        return response_404
+
+    if response.status_code == 405:
+        response_405 = DeleteVPNWireGuardTunnelAddressEndpointResponse405.from_dict(response.json())
+
+        return response_405
+
+    if response.status_code == 406:
+        response_406 = DeleteVPNWireGuardTunnelAddressEndpointResponse406.from_dict(response.json())
+
+        return response_406
+
+    if response.status_code == 409:
+        response_409 = DeleteVPNWireGuardTunnelAddressEndpointResponse409.from_dict(response.json())
+
+        return response_409
+
+    if response.status_code == 415:
+        response_415 = DeleteVPNWireGuardTunnelAddressEndpointResponse415.from_dict(response.json())
+
+        return response_415
+
+    if response.status_code == 422:
+        response_422 = DeleteVPNWireGuardTunnelAddressEndpointResponse422.from_dict(response.json())
+
+        return response_422
+
+    if response.status_code == 424:
+        response_424 = DeleteVPNWireGuardTunnelAddressEndpointResponse424.from_dict(response.json())
+
+        return response_424
+
+    if response.status_code == 500:
+        response_500 = DeleteVPNWireGuardTunnelAddressEndpointResponse500.from_dict(response.json())
+
+        return response_500
+
+    if response.status_code == 503:
+        response_503 = DeleteVPNWireGuardTunnelAddressEndpointResponse503.from_dict(response.json())
+
+        return response_503
+
+    if client.raise_on_unexpected_status:
+        raise errors.UnexpectedStatus(response.status_code, response.content)
+    else:
+        return None
+
+
+def _build_response(
+    *, client: AuthenticatedClient | Client, response: httpx.Response
+) -> Response[
+    DeleteVPNWireGuardTunnelAddressEndpointResponse400
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse401
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse403
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse404
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse405
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse406
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse409
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse415
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse422
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse424
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse500
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse503
+]:
+    return Response(
+        status_code=HTTPStatus(response.status_code),
+        content=response.content,
+        headers=response.headers,
+        parsed=_parse_response(client=client, response=response),
+    )
+
+
+def sync_detailed(
+    *,
+    client: AuthenticatedClient | Client,
+    parent_id: int | str,
+    id: int | str,
+) -> Response[
+    DeleteVPNWireGuardTunnelAddressEndpointResponse400
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse401
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse403
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse404
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse405
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse406
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse409
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse415
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse422
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse424
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse500
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse503
+]:
+    """<h3>Description:</h3>Deletes an existing WireGuard Tunnel Address.<br><h3>Details:</h3>**Endpoint
+    type**: Singular<br>**Associated model**: WireGuardTunnelAddress<br>**Parent model**:
+    WireGuardTunnel<br>**Requires authentication**: Yes<br>**Supported authentication modes:** [
+    BasicAuth, JWTAuth, KeyAuth ]<br>**Allowed privileges**: [ page-all, api-v2-vpn-wireguard-tunnel-
+    address-delete ]<br>**Required packages**: [ pfSense-pkg-WireGuard ]<br>**Applies immediately**:
+    No<br>**Utilizes cache**: None
+
+    Args:
+        parent_id (int | str):
+        id (int | str):
+
+    Raises:
+        errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
+        httpx.TimeoutException: If the request takes longer than Client.timeout.
+
+    Returns:
+        Response[DeleteVPNWireGuardTunnelAddressEndpointResponse400 | DeleteVPNWireGuardTunnelAddressEndpointResponse401 | DeleteVPNWireGuardTunnelAddressEndpointResponse403 | DeleteVPNWireGuardTunnelAddressEndpointResponse404 | DeleteVPNWireGuardTunnelAddressEndpointResponse405 | DeleteVPNWireGuardTunnelAddressEndpointResponse406 | DeleteVPNWireGuardTunnelAddressEndpointResponse409 | DeleteVPNWireGuardTunnelAddressEndpointResponse415 | DeleteVPNWireGuardTunnelAddressEndpointResponse422 | DeleteVPNWireGuardTunnelAddressEndpointResponse424 | DeleteVPNWireGuardTunnelAddressEndpointResponse500 | DeleteVPNWireGuardTunnelAddressEndpointResponse503]
+    """
+
+    kwargs = _get_kwargs(
+        parent_id=parent_id,
+        id=id,
+    )
+
+    response = client.get_httpx_client().request(
+        **kwargs,
+    )
+
+    return _build_response(client=client, response=response)
+
+
+def sync(
+    *,
+    client: AuthenticatedClient | Client,
+    parent_id: int | str,
+    id: int | str,
+) -> (
+    DeleteVPNWireGuardTunnelAddressEndpointResponse400
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse401
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse403
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse404
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse405
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse406
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse409
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse415
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse422
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse424
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse500
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse503
+    | None
+):
+    """<h3>Description:</h3>Deletes an existing WireGuard Tunnel Address.<br><h3>Details:</h3>**Endpoint
+    type**: Singular<br>**Associated model**: WireGuardTunnelAddress<br>**Parent model**:
+    WireGuardTunnel<br>**Requires authentication**: Yes<br>**Supported authentication modes:** [
+    BasicAuth, JWTAuth, KeyAuth ]<br>**Allowed privileges**: [ page-all, api-v2-vpn-wireguard-tunnel-
+    address-delete ]<br>**Required packages**: [ pfSense-pkg-WireGuard ]<br>**Applies immediately**:
+    No<br>**Utilizes cache**: None
+
+    Args:
+        parent_id (int | str):
+        id (int | str):
+
+    Raises:
+        errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
+        httpx.TimeoutException: If the request takes longer than Client.timeout.
+
+    Returns:
+        DeleteVPNWireGuardTunnelAddressEndpointResponse400 | DeleteVPNWireGuardTunnelAddressEndpointResponse401 | DeleteVPNWireGuardTunnelAddressEndpointResponse403 | DeleteVPNWireGuardTunnelAddressEndpointResponse404 | DeleteVPNWireGuardTunnelAddressEndpointResponse405 | DeleteVPNWireGuardTunnelAddressEndpointResponse406 | DeleteVPNWireGuardTunnelAddressEndpointResponse409 | DeleteVPNWireGuardTunnelAddressEndpointResponse415 | DeleteVPNWireGuardTunnelAddressEndpointResponse422 | DeleteVPNWireGuardTunnelAddressEndpointResponse424 | DeleteVPNWireGuardTunnelAddressEndpointResponse500 | DeleteVPNWireGuardTunnelAddressEndpointResponse503
+    """
+
+    return sync_detailed(
+        client=client,
+        parent_id=parent_id,
+        id=id,
+    ).parsed
+
+
+async def asyncio_detailed(
+    *,
+    client: AuthenticatedClient | Client,
+    parent_id: int | str,
+    id: int | str,
+) -> Response[
+    DeleteVPNWireGuardTunnelAddressEndpointResponse400
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse401
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse403
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse404
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse405
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse406
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse409
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse415
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse422
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse424
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse500
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse503
+]:
+    """<h3>Description:</h3>Deletes an existing WireGuard Tunnel Address.<br><h3>Details:</h3>**Endpoint
+    type**: Singular<br>**Associated model**: WireGuardTunnelAddress<br>**Parent model**:
+    WireGuardTunnel<br>**Requires authentication**: Yes<br>**Supported authentication modes:** [
+    BasicAuth, JWTAuth, KeyAuth ]<br>**Allowed privileges**: [ page-all, api-v2-vpn-wireguard-tunnel-
+    address-delete ]<br>**Required packages**: [ pfSense-pkg-WireGuard ]<br>**Applies immediately**:
+    No<br>**Utilizes cache**: None
+
+    Args:
+        parent_id (int | str):
+        id (int | str):
+
+    Raises:
+        errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
+        httpx.TimeoutException: If the request takes longer than Client.timeout.
+
+    Returns:
+        Response[DeleteVPNWireGuardTunnelAddressEndpointResponse400 | DeleteVPNWireGuardTunnelAddressEndpointResponse401 | DeleteVPNWireGuardTunnelAddressEndpointResponse403 | DeleteVPNWireGuardTunnelAddressEndpointResponse404 | DeleteVPNWireGuardTunnelAddressEndpointResponse405 | DeleteVPNWireGuardTunnelAddressEndpointResponse406 | DeleteVPNWireGuardTunnelAddressEndpointResponse409 | DeleteVPNWireGuardTunnelAddressEndpointResponse415 | DeleteVPNWireGuardTunnelAddressEndpointResponse422 | DeleteVPNWireGuardTunnelAddressEndpointResponse424 | DeleteVPNWireGuardTunnelAddressEndpointResponse500 | DeleteVPNWireGuardTunnelAddressEndpointResponse503]
+    """
+
+    kwargs = _get_kwargs(
+        parent_id=parent_id,
+        id=id,
+    )
+
+    response = await client.get_async_httpx_client().request(**kwargs)
+
+    return _build_response(client=client, response=response)
+
+
+async def asyncio(
+    *,
+    client: AuthenticatedClient | Client,
+    parent_id: int | str,
+    id: int | str,
+) -> (
+    DeleteVPNWireGuardTunnelAddressEndpointResponse400
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse401
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse403
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse404
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse405
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse406
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse409
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse415
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse422
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse424
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse500
+    | DeleteVPNWireGuardTunnelAddressEndpointResponse503
+    | None
+):
+    """<h3>Description:</h3>Deletes an existing WireGuard Tunnel Address.<br><h3>Details:</h3>**Endpoint
+    type**: Singular<br>**Associated model**: WireGuardTunnelAddress<br>**Parent model**:
+    WireGuardTunnel<br>**Requires authentication**: Yes<br>**Supported authentication modes:** [
+    BasicAuth, JWTAuth, KeyAuth ]<br>**Allowed privileges**: [ page-all, api-v2-vpn-wireguard-tunnel-
+    address-delete ]<br>**Required packages**: [ pfSense-pkg-WireGuard ]<br>**Applies immediately**:
+    No<br>**Utilizes cache**: None
+
+    Args:
+        parent_id (int | str):
+        id (int | str):
+
+    Raises:
+        errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
+        httpx.TimeoutException: If the request takes longer than Client.timeout.
+
+    Returns:
+        DeleteVPNWireGuardTunnelAddressEndpointResponse400 | DeleteVPNWireGuardTunnelAddressEndpointResponse401 | DeleteVPNWireGuardTunnelAddressEndpointResponse403 | DeleteVPNWireGuardTunnelAddressEndpointResponse404 | DeleteVPNWireGuardTunnelAddressEndpointResponse405 | DeleteVPNWireGuardTunnelAddressEndpointResponse406 | DeleteVPNWireGuardTunnelAddressEndpointResponse409 | DeleteVPNWireGuardTunnelAddressEndpointResponse415 | DeleteVPNWireGuardTunnelAddressEndpointResponse422 | DeleteVPNWireGuardTunnelAddressEndpointResponse424 | DeleteVPNWireGuardTunnelAddressEndpointResponse500 | DeleteVPNWireGuardTunnelAddressEndpointResponse503
+    """
+
+    return (
+        await asyncio_detailed(
+            client=client,
+            parent_id=parent_id,
+            id=id,
+        )
+    ).parsed

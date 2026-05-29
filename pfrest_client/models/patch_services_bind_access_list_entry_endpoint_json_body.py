@@ -1,0 +1,89 @@
+from __future__ import annotations
+
+from collections.abc import Mapping
+from typing import Any, TypeVar
+
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
+
+from ..types import UNSET, Unset
+
+T = TypeVar("T", bound="PatchServicesBINDAccessListEntryEndpointJsonBody")
+
+
+@_attrs_define
+class PatchServicesBINDAccessListEntryEndpointJsonBody:
+    """
+    Attributes:
+        parent_id (int): The ID of the parent this object is nested under.
+        id (int): The ID of the object or resource to interact with.
+        value (str | Unset): The network CIDR to allow.<br>
+        description (str | Unset): A description of the access list entry.<br>
+    """
+
+    parent_id: int
+    id: int
+    value: str | Unset = UNSET
+    description: str | Unset = UNSET
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
+
+    def to_dict(self) -> dict[str, Any]:
+        parent_id = self.parent_id
+
+        id = self.id
+
+        value = self.value
+
+        description = self.description
+
+        field_dict: dict[str, Any] = {}
+        field_dict.update(self.additional_properties)
+        field_dict.update(
+            {
+                "parent_id": parent_id,
+                "id": id,
+            }
+        )
+        if value is not UNSET:
+            field_dict["value"] = value
+        if description is not UNSET:
+            field_dict["description"] = description
+
+        return field_dict
+
+    @classmethod
+    def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
+        d = dict(src_dict)
+        parent_id = d.pop("parent_id")
+
+        id = d.pop("id")
+
+        value = d.pop("value", UNSET)
+
+        description = d.pop("description", UNSET)
+
+        patch_services_bind_access_list_entry_endpoint_json_body = cls(
+            parent_id=parent_id,
+            id=id,
+            value=value,
+            description=description,
+        )
+
+        patch_services_bind_access_list_entry_endpoint_json_body.additional_properties = d
+        return patch_services_bind_access_list_entry_endpoint_json_body
+
+    @property
+    def additional_keys(self) -> list[str]:
+        return list(self.additional_properties.keys())
+
+    def __getitem__(self, key: str) -> Any:
+        return self.additional_properties[key]
+
+    def __setitem__(self, key: str, value: Any) -> None:
+        self.additional_properties[key] = value
+
+    def __delitem__(self, key: str) -> None:
+        del self.additional_properties[key]
+
+    def __contains__(self, key: str) -> bool:
+        return key in self.additional_properties
